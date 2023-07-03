@@ -114,3 +114,87 @@ public class Main
    	 
     }
 }
+
+//////////////////////////////////////////////////////////////////////////////
+
+class Patient
+{
+    String Name,Gender,Disease;
+    int Age,priority;
+    Patient next;
+    
+    Patient(String Name,int Age,String Gender,String Disease,int priority)
+    {
+   	 this.Name=Name;
+   	 this.Age=Age;
+   	 this.Gender=Gender;
+   	 this.Disease=Disease;
+   	 this.priority=priority;
+   	 next=null;
+    }
+}
+
+/////////////////////////////////////////////////////////////////////
+class Doctor
+{
+    String Name,Qualification,Gender,Specialization,Disease;
+    Doctor next;
+    
+    Doctor(String Name,String Qualification,String Gender,String Specialization,String Disease)
+    {
+   	 this.Name=Name;
+   	 this.Qualification=Qualification;
+   	 this.Gender=Gender;
+   	 this.Specialization=Specialization;
+   	 this.Disease=Disease;
+   	 next=null;
+    }
+}
+
+//////////////////////////////////////////////////////////////////////////////
+class Laboratory
+{
+    String Lab_name,Incharge_name,Facilities;
+    Laboratory next;
+    
+    Laboratory(String Lab_name,String Incharge_name,String Facilities)
+    {
+   	 this.Lab_name=Lab_name;
+   	 this.Incharge_name=Incharge_name;
+   	 this.Facilities=Facilities;
+   	 next=null;
+    }
+}
+////////////////////////////////////////////////////////////////////////
+class Access_database
+{
+    public String convertToCSV(String[] data)
+    {
+    	return Stream.of(data).collect(Collectors.joining(","));
+    }
+    
+   	 
+    ArrayList<String> get_data(String f)
+    {
+   	 ArrayList<String> data = new ArrayList<String>();
+   	 try
+   	 {
+   		 Scanner sc=new Scanner(new File(f));
+   		 sc.useDelimiter(",");
+   		 while(sc.hasNext())
+   		 {
+   			 data.add(sc.next());
+   		 }
+   		 
+   	 }
+   	 catch (FileNotFoundException e1)
+   	 {
+   		 // TODO Auto-generated catch block
+   	 }
+   	 
+   	 
+   	 return data;
+    }
+}
+/////////////////////////////////////////////////////////////////////////////
+
